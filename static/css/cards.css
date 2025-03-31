@@ -1,0 +1,146 @@
+.section-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    margin: 0;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.project-card {
+    filter: blur(.0px);
+    flex: 1 1 200px;
+    user-select: none;
+    margin: 0;
+    border: 1px solid #ffffff22;
+    background-color: #282c349d;
+    /* background: linear-gradient(0deg, #282c34 0%, rgba(17, 0, 32, 0.5) 100%); */
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    transition: all 0.2s linear;
+    min-width: 400px;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.project-card .main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.project-card .main .projectImage {
+    border-radius: 0.5rem;
+    max-width: 100%;
+    width: auto;
+    height: 250px;
+    object-fit: cover;
+}
+
+.project-card .main .description {
+    margin: 0.5rem 0;
+    color: #a89ec9;
+}
+
+.project-card:hover {
+    border: 1px solid #ffffff44;
+    transform: translateY(-15px);
+}
+
+.project-title {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.project-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.project-social-link:hover {
+    color: lightslategray;
+}
+
+.project-social-link img {
+    width: 16px;
+    height: 16px;
+    filter: invert(1);
+    transition: transform 0.3s ease;
+}
+
+.project-social-link:hover img {
+    transform: translateX(2px);
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.tag {
+    background-color: #444;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tag.active {
+    background-color: #ee83e5;
+}
+
+.tag:hover {
+    background-color: #666;
+}
+
+/* Добавляем стили для .social-icon в карточках проектов */
+.project-card .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #444;
+    transition: all 0.3s ease;
+}
+
+.project-card .social-icon:hover {
+    background-color: #ee83e5;
+    transform: scale(1.1);
+}
+
+.project-card .social-icon img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}

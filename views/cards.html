@@ -1,0 +1,44 @@
+{{ define "cards" }}
+<section class="section-projects" id="projects-section">
+    <div class="filter-tags">
+        <span class="tag {{ if not .ActiveTags }}active{{ end }}" hx-get="/filter" hx-target="#projects-section"
+            hx-vals='{"tags": ""}' hx-swap="outerHTML">
+            All
+        </span>
+        {{ range .Tags }}
+        <span class="tag {{ if in $.ActiveTags . }}active{{ end }}" hx-get="/filter" hx-target="#projects-section"
+            hx-vals='{"tags": "{{ join (toggleTag $.ActiveTags .) "," | escape }}" }' hx-trigger="click"
+            hx-swap="outerHTML">
+            {{ . }}
+        </span>
+        {{ end }}
+    </div>
+    <div class="project-list" id="projects">
+        {{ template "project-list" . }}
+    </div>
+</section>
+{{ end }}
+
+{{ define "project-list" }}
+    {{ range .Projects }}
+        <div class="project-card">
+            <div class='main'>
+                <img class='projectImage' src="{{ .ImageURL }}" alt="Project Image" />
+                <div class="project-title">
+                    <a class="project-social-link" href="{{ .Link }}" target="_blank" rel="noopener noreferrer">
+                        <span>{{ .Title }}</span>
+                        <img src="/static/img/link-icon.svg" alt="link" />
+                    </a>
+                </div>
+                <p class='description'>{{ .Description }}</p>
+                <div class='tags'>
+                    {{ range .Tags }}
+                    <span class='tag {{ if in $.ActiveTags . }}active{{ end }}'>{{ . }}</span>
+                    {{ end }}
+                </div>
+                <a class="social-icon" href="{{ .ProjectURL }}" target="_blank" rel="noopener noreferrer"><img
+                        src="/static/img/github-icon.svg" /></a>
+            </div>
+        </div>
+    {{ end }}
+{{ end }}
