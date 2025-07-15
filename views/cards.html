@@ -36,8 +36,17 @@
                     <span class='tag {{ if in $.ActiveTags . }}active{{ end }}'>{{ . }}</span>
                     {{ end }}
                 </div>
-                <a class="social-icon" href="{{ .ProjectURL }}" target="_blank" rel="noopener noreferrer"><img
-                        src="/static/img/github-icon.svg" /></a>
+                <div class="social-icons">
+                <a title="GitHub" class="social-icon" href="{{ .ProjectURL }}" target="_blank" rel="noopener noreferrer">
+                    <img alt="GitHub" src="/static/img/github-icon.svg" />
+                </a>
+                {{ if .SwaggerURL }}
+                    <a title="Swagger API" class="social-icon" href="{{ .SwaggerURL }}" target="_blank" rel="noopener noreferrer">
+                        <img alt="Swagger API" src="/static/img/swagger-icon.svg" />
+                    </a>
+                {{ end }}
+                </div>
+
             </div>
         </div>
     {{ end }}

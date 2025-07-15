@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 0;
+
     margin: 0;
 }
 
@@ -49,6 +49,14 @@
 }
 
 .project-card .main .description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    line-height: 1.2em;
+    min-height: calc(1.2em * 3);
+    max-height: calc(1.2em * 3);
     margin: 0.5rem 0;
     color: #a89ec9;
 }
@@ -67,8 +75,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #fff;
-    text-decoration: none;
+    color: #5b65f0;
+    text-decoration: underline ;
     font-weight: 600;
     font-size: 1.2rem;
     transition: all 0.3s ease;
@@ -98,15 +106,24 @@
 }
 
 .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    min-height: 32px;
+    max-height: 32px;
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    gap: 8px;
+    overflow: hidden;
+    max-height: 2em; 
     margin: 0.5rem 0;
 }
 
 .tag {
-    background-color: #444;
-    color: #fff;
+    background-color: rgba(68, 68, 68, 0.25);
+    min-width: 50px;
+    max-width: 50px;
+  height: 22px; 
+  align-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding: 0.2rem 0.5rem;
     border-radius: 0.3rem;
     font-size: 0.8rem;
@@ -122,7 +139,13 @@
     background-color: #666;
 }
 
-/* Добавляем стили для .social-icon в карточках проектов */
+.project-card .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;  
+}
+
 .project-card .social-icon {
     display: flex;
     align-items: center;
