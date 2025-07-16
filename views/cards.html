@@ -1,18 +1,34 @@
 {{ define "cards" }}
 <section class="section-projects" id="projects-section">
-    <div class="filter-tags">
-        <span class="tag {{ if not .ActiveTags }}active{{ end }}" hx-get="/filter" hx-target="#projects-section"
-            hx-vals='{"tags": ""}' hx-swap="outerHTML">
-            All
-        </span>
-        {{ range .Tags }}
-        <span class="tag {{ if in $.ActiveTags . }}active{{ end }}" hx-get="/filter" hx-target="#projects-section"
-            hx-vals='{"tags": "{{ join (toggleTag $.ActiveTags .) "," | escape }}" }' hx-trigger="click"
-            hx-swap="outerHTML">
-            {{ . }}
-        </span>
-        {{ end }}
+
+    <div class="dropdown">
+        <div class="dropdown-button">Фильтр</div>
+        <div class="dropdown-content">
+            <label>
+                <input type="checkbox" id="all-checkbox" hx-get="/filter" hx-target="#projects-section"
+                    hx-swap="outerHTML" hx-vals="js:{tags: ''}" onchange="
+                     if (this.checked) {
+                       document.querySelectorAll('.tag-checkbox').forEach(cb => cb.checked = false);
+                     }
+                   ">
+                All
+            </label>
+            {{ range .Tags }}
+            <label>
+                <input type="checkbox" class="tag-checkbox" value="{{ . }}" {{ if in $.ActiveTags . }}checked{{ end }}
+                    hx-get="/filter" hx-target="#projects-section" hx-swap="outerHTML"
+                    hx-vals="js:{tags: Array.from(document.querySelectorAll('.tag-checkbox:checked')).map(cb => cb.value).join(',')}"
+                    onchange="
+                     if (this.checked) {
+                       document.getElementById('all-checkbox').checked = false;
+                     }
+                   ">
+                {{ . }}
+            </label>
+            {{ end }}
+        </div>
     </div>
+
     <div class="project-list" id="projects">
         {{ template "project-list" . }}
     </div>
@@ -20,34 +36,35 @@
 {{ end }}
 
 {{ define "project-list" }}
-    {{ range .Projects }}
-        <div class="project-card">
-            <div class='main'>
-                <img class='projectImage' src="{{ .ImageURL }}" alt="Project Image" />
-                <div class="project-title">
-                    <a class="project-social-link" href="{{ .Link }}" target="_blank" rel="noopener noreferrer">
-                        <span>{{ .Title }}</span>
-                        <img src="/static/img/link-icon.svg" alt="link" />
-                    </a>
-                </div>
-                <p class='description'>{{ .Description }}</p>
-                <div class='tags'>
-                    {{ range .Tags }}
-                    <span class='tag {{ if in $.ActiveTags . }}active{{ end }}'>{{ . }}</span>
-                    {{ end }}
-                </div>
-                <div class="social-icons">
-                <a title="GitHub" class="social-icon" href="{{ .ProjectURL }}" target="_blank" rel="noopener noreferrer">
-                    <img alt="GitHub" src="/static/img/github-icon.svg" />
-                </a>
-                {{ if .SwaggerURL }}
-                    <a title="Swagger API" class="social-icon" href="{{ .SwaggerURL }}" target="_blank" rel="noopener noreferrer">
-                        <img alt="Swagger API" src="/static/img/swagger-icon.svg" />
-                    </a>
-                {{ end }}
-                </div>
-
-            </div>
+{{ range .Projects }}
+<div class="project-card">
+    <div class='main'>
+        <img class='projectImage' src="{{ .ImageURL }}" alt="Project Image" />
+        <div class="project-title">
+            <a class="project-social-link" href="{{ .Link }}" target="_blank" rel="noopener noreferrer">
+                <span>{{ .Title }}</span>
+                <img src="/static/img/link-icon.svg" alt="link" />
+            </a>
         </div>
-    {{ end }}
+        <p class='description'>{{ .Description }}</p>
+        <div class='tags'>
+            {{ range .Tags }}
+            <span class='tag {{ if in $.ActiveTags . }}active{{ end }}'>{{ . }}</span>
+            {{ end }}
+        </div>
+        <div class="social-icons">
+            <a title="GitHub" class="social-icon" href="{{ .ProjectURL }}" target="_blank" rel="noopener noreferrer">
+                <img alt="GitHub" src="/static/img/github-icon.svg" />
+            </a>
+            {{ if .SwaggerURL }}
+            <a title="Swagger API" class="social-icon" href="{{ .SwaggerURL }}" target="_blank"
+                rel="noopener noreferrer">
+                <img alt="Swagger API" src="/static/img/swagger-icon.svg" />
+            </a>
+            {{ end }}
+        </div>
+
+    </div>
+</div>
+{{ end }}
 {{ end }}

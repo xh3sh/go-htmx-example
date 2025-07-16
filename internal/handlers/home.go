@@ -33,17 +33,17 @@ func (h *Handler) HandleHome(c echo.Context) error {
 	return c.Render(http.StatusOK, "index", data)
 }
 
-// Helper functions
 func getAllTags(projects []model.Project) []string {
 	tagSet := make(map[string]struct{})
+	var tags []string
 	for _, project := range projects {
 		for _, tag := range project.Tags {
-			tagSet[tag] = struct{}{}
+			if _, exists := tagSet[tag]; !exists {
+				tagSet[tag] = struct{}{}
+				tags = append(tags, tag)
+			}
 		}
 	}
-	tags := make([]string, 0, len(tagSet))
-	for tag := range tagSet {
-		tags = append(tags, tag)
-	}
+
 	return tags
 }

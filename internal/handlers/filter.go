@@ -11,7 +11,6 @@ import (
 func (h *Handler) HandleFilter(c echo.Context) error {
 	tagsParam := c.QueryParam("tags")
 
-	// Parse and deduplicate tags
 	seenTags := make(map[string]bool)
 	var activeTags []string
 	if tagsParam != "" {
@@ -24,7 +23,6 @@ func (h *Handler) HandleFilter(c echo.Context) error {
 		}
 	}
 
-	// Filter projects based on active tags
 	var filteredProjects []model.Project
 	if len(activeTags) == 0 {
 		filteredProjects = h.config.Projects
@@ -42,7 +40,6 @@ func (h *Handler) HandleFilter(c echo.Context) error {
 		Tags:       getAllTags(h.config.Projects),
 	}
 
-	// Render only the "project-list" template
 	return c.Render(http.StatusOK, "cards", data)
 }
 
