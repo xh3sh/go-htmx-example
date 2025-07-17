@@ -39,7 +39,9 @@
 {{ range .Projects }}
 <div class="project-card">
     <div class='main'>
-        <img class='projectImage' src="{{ .ImageURL }}" alt="Project Image" />
+        <div class='projectImage'>
+            <img src="{{ .ImageURL }}" alt="Project Image" />
+        </div>
         <div class="project-title">
             <a class="project-social-link" href="{{ .Link }}" target="_blank" rel="noopener noreferrer">
                 <span>{{ .Title }}</span>

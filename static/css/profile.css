@@ -38,7 +38,7 @@
     max-width: 80%;
     flex: 1;
     overflow: hidden;
-    padding: 0 5px;
+    padding: 0 0 5px 5px;
 }
 
 .profile-info h2 {
@@ -55,7 +55,7 @@
 .profile-contacts {
     display: flex;
     gap: 1rem;
-    margin: 1rem 0;
+    margin: 2rem 0 0 0;
 }
 
 .social-icon {
