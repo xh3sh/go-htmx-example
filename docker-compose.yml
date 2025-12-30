@@ -15,5 +15,4 @@ services:
 
 networks:
   projects-network:
-    driver: bridge
-    name: projects-network
+    external: true

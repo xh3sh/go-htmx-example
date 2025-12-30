@@ -50,28 +50,41 @@
 5. Откройте браузер и перейдите по адресу `http://localhost:80`.
 
 ### Запуск с использованием Docker
+1. Создайте файл конфигурации:
 
-1. Постройте Docker образ:
+    Создайте config.yaml и заполните согласно шаблону из config-example
+
+2. Постройте Docker образ:
 
     ```sh
     docker build -t go-htmx-example .
     ```
 
-2. Запустите контейнер:
+3. Запустите контейнер:
 
     ```sh
     docker run -p 80:80 go-htmx-example
     ```
 
-3. Откройте браузер и перейдите по адресу `http://localhost:80`.
+4. Откройте браузер и перейдите по адресу `http://localhost:80`.
 
 ### Запуск с использованием Docker Compose
+1. Создайте файл конфигурации:
 
-1. Запуск контейнера:
+    Создайте config.yaml и заполните согласно шаблону из config-example
+
+2. Создайте сеть:
+    docker network create projects-network
+
+3. Запуск контейнера:
 
     ```sh
     docker-compose up -d
     ```
+
+### Запуск с использованием Makefile и Docker
+1. Запуск проекта:
+    make up
 
 ## Лицензия
 
