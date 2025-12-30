@@ -1,0 +1,258 @@
+.section-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.project-card {
+    flex: 1 1 280px; 
+    min-width: 280px;
+    max-width: 320px;
+    
+    user-select: none;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+}
+
+.project-card:hover {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(110, 87, 224, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+}  
+
+.project-card .main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.project-card .main .projectImage {
+  width: auto;
+  height: auto;
+  overflow: hidden
+}
+
+.project-card .main .projectImage img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+
+.project-card .main .description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    line-height: 1.2em;
+    min-height: calc(1.2em * 3);
+    max-height: calc(1.2em * 3);
+    margin: 0.5rem 0;
+    color: #a89ec9;
+}
+
+
+.project-title {
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.project-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #5b65f0;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.project-social-link:hover {
+    color: lightslategray;
+}
+
+.project-social-link img {
+    width: 16px;
+    height: 16px;
+    filter: invert(1);
+    transition: transform 0.3s ease;
+}
+
+.project-social-link:hover img {
+    transform: translateX(2px);
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.tags {
+    min-height: 32px;
+    max-height: 32px;
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    gap: 8px;
+    overflow: hidden;
+    max-height: 2em;
+    margin: 0.5rem 0;
+}
+
+.tag {
+    background-color: rgba(68, 68, 68, 0.25);
+    min-width: 50px;
+    max-width: 50px;
+    height: 22px;
+    align-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tag.active {
+    background-color: #ee83e5;
+}
+
+.tag:hover {
+    background-color: #666;
+}
+
+.project-card .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+}
+
+.project-card .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #444;
+    transition: all 0.3s ease;
+}
+
+.project-card .social-icon:hover {
+    background-color: #ee83e5;
+}
+
+.project-card .social-icon img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    padding: 6px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(40, 40, 40, 0.8);
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-button:hover {
+    background: rgba(50, 50, 50, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(30, 30, 30, 0.95);
+    min-width: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content label {
+    display: block;
+    padding: 5px 10px;
+    color: #d0d0d0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content label:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content label:first-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 5px;
+    padding-bottom: 8px;
+}
+
+.dropdown-content input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #4a9eff;
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}

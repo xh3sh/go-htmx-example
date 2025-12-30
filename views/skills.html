@@ -1,0 +1,25 @@
+{{ define "skills" }}
+<div class="skills-wrapper">
+    <h3 class="column-title">Языки и базы данных</h3>
+    <h3 class="column-title">Инфраструктура</h3>
+    <h3 class="column-title">Технологии</h3>
+
+    <div class="skills-column-content">
+        {{ range .Languages }}
+        <div class="skill-card"><span>{{ . }}</span></div>
+        {{ end }}
+    </div>
+
+    <div class="skills-column-content">
+        {{ range .Infrastructure }}
+        <div class="skill-card"><span>{{ . }}</span></div>
+        {{ end }}
+    </div>
+
+    <div class="skills-column-content">
+        {{ range .Technologies }}
+        <div class="skill-card"><span>{{ . }}</span></div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  go-htmx-example:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: go-htmx-example
+    container_name: go-htmx-example
+    environment:
+      - TZ=UTC
+    networks:
+      - projects-network
+    restart: unless-stopped
+
+networks:
+  projects-network:
+    driver: bridge
+    name: projects-network

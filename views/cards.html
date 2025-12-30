@@ -1,0 +1,78 @@
+{{ define "cards" }}
+<section class="section-projects" id="projects-section" 
+         x-data="{ 
+            selectedTags: [], 
+            toggleTag(tag) {
+                if (this.selectedTags.includes(tag)) {
+                    this.selectedTags = this.selectedTags.filter(t => t !== tag);
+                } else {
+                    this.selectedTags.push(tag);
+                }
+            }
+         }">
+
+    <div class="dropdown">
+        <div class="dropdown-button">Фильтр</div>
+        <div class="dropdown-content">
+            <label>
+                <input type="checkbox" 
+                       :checked="selectedTags.length === 0" 
+                       @change="selectedTags = []">
+                Весь список
+            </label>
+            {{ range .Tags }}
+            <label>
+                <input type="checkbox" 
+                       :checked="selectedTags.includes('{{ . }}')"
+                       @change="toggleTag('{{ . }}')">
+                {{ . }}
+            </label>
+            {{ end }}
+        </div>
+    </div>
+
+    <div class="project-list" id="projects">
+        {{ range .Projects }}
+        <div class="project-card" 
+             x-data="{ tags: [{{ range $index, $tag := .Tags }}{{ if $index }},{{ end }}'{{ $tag }}'{{ end }}] }"
+             x-show="selectedTags.length === 0 || tags.some(t => selectedTags.includes(t))"
+             x-transition:enter.duration.400ms>
+            
+            <div class='main'>
+                <div class='projectImage'>
+                    <img src="{{ .ImageURL }}" alt="Project Image" />
+                </div>
+                
+                <div class="project-title">
+                    <a class="project-social-link" href="{{ .Link }}" target="_blank" rel="noopener noreferrer">
+                        <span>{{ .Title }}</span>
+                        <img src="/static/img/link-icon.svg" alt="link" />
+                    </a>
+                </div>
+
+                <p class='description'>{{ .Description }}</p>
+
+                <div class='tags'>
+                    {{ range .Tags }}
+                    <span class='tag' :class="selectedTags.includes('{{ . }}') ? 'active' : ''">
+                        {{ . }}
+                    </span>
+                    {{ end }}
+                </div>
+
+                <div class="social-icons">
+                    <a title="GitHub" class="social-icon" href="{{ .ProjectURL }}" target="_blank" rel="noopener noreferrer">
+                        <img alt="GitHub" src="/static/img/github-icon.svg" />
+                    </a>
+                    {{ if .SwaggerURL }}
+                    <a title="Swagger API" class="social-icon" href="{{ .SwaggerURL }}" target="_blank" rel="noopener noreferrer">
+                        <img alt="Swagger API" src="/static/img/swagger-icon.svg" />
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

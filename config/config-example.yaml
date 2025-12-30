@@ -1,0 +1,17 @@
+server:
+  port: ":80"
+
+social:
+  name: ""
+  icon_url: "https://*"
+  description: "*"
+  github_url: "https://github.com/*"
+  contact_url: "https://*"
+
+projects:
+  - image_url: "https://*"
+    project_url: "https://github.com/user/project-one"
+    title: "*"
+    description: "*"
+    link: "*"
+    tags: ["#Golang"]

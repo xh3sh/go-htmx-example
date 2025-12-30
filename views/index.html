@@ -1,0 +1,24 @@
+{{ define "index" }}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Projects</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon/favicon-16x16.png">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/profile.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/cards.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/wrapper.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/skills.css">
+</head>
+<body translate="no">
+
+    {{ template "profile" . }}
+    {{ template "wrapper" . }}
+
+</body>
+</html>
+{{ end }}

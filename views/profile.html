@@ -1,0 +1,18 @@
+{{ define "profile" }}
+<section class="section-profile">
+    <div class="profile-container">
+        <div class="profile-image">
+            <img src="{{ .Social.IconURL }}" alt="Profile Image">
+        </div>
+        <div class="profile-info">
+            <h2>{{ .Social.Name }}</h2>
+            <p>{{ .Social.Description }}</p>
+    
+            <div class="profile-contacts">
+                <a class="social-icon" href="{{ .Social.GitHubURL }}" title="GitHub" target="_blank" rel="noopener noreferrer"><img alt="GitHub" src="/static/img/github-icon.svg"/></a>
+                <a class="social-icon" href="{{ .Social.ContactURL }}" title="Telegram" target="_blank" rel="noopener noreferrer"><img alt="Telegram" src="/static/img/telegram-icon.svg"/></a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

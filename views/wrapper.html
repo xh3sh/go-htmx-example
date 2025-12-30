@@ -1,0 +1,30 @@
+{{ define "wrapper" }}
+<div class="wrapper" x-data="{ tab: 'cards' }">
+    
+    <div class="wrapper-navigation">
+        <button 
+            class="nav-btn" 
+            :class="{ 'active': tab === 'cards' }" 
+            @click="tab = 'cards'">
+            Проекты
+        </button>
+
+        <button 
+            class="nav-btn" 
+            :class="{ 'active': tab === 'skills' }" 
+            @click="tab = 'skills'">
+            Стэк
+        </button>
+    </div>
+
+    <div class="wrapper-container">
+        <div x-show="tab === 'cards'" x-show>
+            {{ template "cards" . }}
+        </div>
+        <div x-show="tab === 'skills'" x-show>
+            {{ template "skills" . }}
+        </div>
+    </div>
+    
+</div>
+{{ end }}
