@@ -17,9 +17,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Run tests
+        run: |
+          go test ./... -v
+      
       - name: Build project
         run: make up
-
-      - name: Stop containers
-        if: always()
-        run: docker compose down
