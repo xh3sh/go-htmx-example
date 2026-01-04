@@ -20,7 +20,13 @@ type Social struct {
 }
 
 type Skills struct {
-	Languages      []string `yaml:"languages"`
-	Infrastructure []string `yaml:"infrastructure"`
-	Technologies   []string `yaml:"technologies"`
+	Languages      []SkillItem `yaml:"languages"`
+	Infrastructure []SkillItem `yaml:"infrastructure"`
+	Technologies   []SkillItem `yaml:"technologies"`
+}
+
+type SkillItem struct {
+	Name  string   `yaml:"name"`
+	Tech  []string `yaml:"tech"`
+	Level int      `yaml:"level"`
 }

@@ -43,9 +43,9 @@ func TestHandleHome(t *testing.T) {
 		},
 		Social: model.Social{Name: "me"},
 		Skills: model.Skills{
-			Languages:      []string{"Go"},
-			Infrastructure: []string{"Docker"},
-			Technologies:   []string{"HTMX"},
+			Languages:      []model.SkillItem{{Name: "Go"}},
+			Infrastructure: []model.SkillItem{{Name: "Docker"}},
+			Technologies:   []model.SkillItem{{Name: "HTMX"}},
 		},
 	}
 

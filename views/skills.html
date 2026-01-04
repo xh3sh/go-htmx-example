@@ -6,19 +6,35 @@
 
     <div class="skills-column-content">
         {{ range .Languages }}
-        <div class="skill-card"><span>{{ . }}</span></div>
+        {{ template "skill-card" . }}
         {{ end }}
     </div>
 
     <div class="skills-column-content">
         {{ range .Infrastructure }}
-        <div class="skill-card"><span>{{ . }}</span></div>
+        {{ template "skill-card" . }}
         {{ end }}
     </div>
 
     <div class="skills-column-content">
         {{ range .Technologies }}
-        <div class="skill-card"><span>{{ . }}</span></div>
+        {{ template "skill-card" . }}
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+
+{{ define "skill-card" }}
+<div class="skill-card" style="--level: {{ .Level }}%;">
+    <div class="level-fill">
+        <span class="level-percentage">{{ .Level }}%</span>
+    </div>
+
+    <span class="skill-name">{{ .Name }}</span>
+
+    <div class="tech-tags">
+        {{ range .Tech }}
+        <span class="tech-tag">{{ . }}</span>
         {{ end }}
     </div>
 </div>

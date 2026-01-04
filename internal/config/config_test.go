@@ -21,9 +21,10 @@ projects: []
 social:
   name: "me"
 skills:
-  languages: ["Go"]
-  infrastructure: ["Docker"]
-  technologies: ["HTMX"]
+  languages:
+    - name: "Go"
+      tech: ["Tests"]
+      level: 55
 `
 	if err := os.WriteFile(filepath.Join(cfgDir, "config.yaml"), []byte(yml), 0o644); err != nil {
 		t.Fatalf("запись config.yaml: %v", err)
@@ -53,7 +54,7 @@ skills:
 	if cfg.Social.Name != "me" {
 		t.Fatalf("ожидается social.name 'me', получено %q", cfg.Social.Name)
 	}
-	if len(cfg.Skills.Languages) != 1 || cfg.Skills.Languages[0] != "Go" {
+	if len(cfg.Skills.Languages) != 1 || cfg.Skills.Languages[0].Name != "Go" {
 		t.Fatalf("неожиданные skills.languages: %#v", cfg.Skills.Languages)
 	}
 }

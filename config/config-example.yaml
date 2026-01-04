@@ -8,6 +8,20 @@ social:
   github_url: "https://github.com/*"
   contact_url: "https://*"
 
+skills:
+  languages:
+    - name: "First"
+      tech: ["*"]
+      level: 50
+  infrastructure:
+    - name: "Second"
+      tech: ["*"]
+      level: 100
+  technologies:
+    - name: "Tech"
+      tech: ["*"]
+      level: 0
+
 projects:
   - image_url: "https://*"
     project_url: "https://github.com/user/project-one"

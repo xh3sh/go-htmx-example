@@ -24,9 +24,9 @@ func (h *Handler) HandleHome(c echo.Context) error {
 		Tags           []string
 		ActiveTags     []string
 		Social         model.Social
-		Languages      []string
-		Infrastructure []string
-		Technologies   []string
+		Languages      []model.SkillItem
+		Infrastructure []model.SkillItem
+		Technologies   []model.SkillItem
 	}{
 		Projects:       h.config.Projects,
 		Tags:           tags,
