@@ -50,15 +50,16 @@
 }
 
 .project-card .main .projectImage {
-  width: auto;
-  height: auto;
-  overflow: hidden
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 0.5rem;
 }
 
 .project-card .main .projectImage img{
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -116,17 +117,23 @@
 }
 
 .tags {
-    min-height: 32px;
-    max-height: 32px;
-    display: grid;
-    grid-template-columns: repeat(5, max-content);
+    display: flex;
+    overflow-x: auto;
     gap: 8px;
-    overflow: hidden;
-    max-height: 2em;
     margin: 0.5rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 4px;
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+
+.tags::-webkit-scrollbar {
+    display: none;
 }
 
 .tag {
+    flex-shrink: 0;
     background-color: rgba(68, 68, 68, 0.25);
     min-width: 50px;
     max-width: 50px;

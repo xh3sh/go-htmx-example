@@ -54,7 +54,9 @@
 
                 <div class='tags'>
                     {{ range .Tags }}
-                    <span class='tag' :class="selectedTags.includes('{{ . }}') ? 'active' : ''">
+                    <span class='tag' 
+                          title="{{ . }}"
+                          :class="selectedTags.includes('{{ . }}') ? 'active' : ''">
                         {{ . }}
                     </span>
                     {{ end }}
