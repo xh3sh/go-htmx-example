@@ -3,7 +3,69 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     padding: 20px;
-    justify-items: center;
+    align-items: start;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.skills-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.column-title {
+    text-align: center;
+    color: #a89ec9;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.skills-column-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .skills-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-wrapper {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 10px;
+    }
+
+    .skills-column {
+        padding: 2rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skills-column:last-child {
+        border-bottom: none;
+    }
+
+    .column-title {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+    
+    .skills-column-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
 }
 
 .skill-card {

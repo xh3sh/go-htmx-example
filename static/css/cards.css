@@ -10,9 +10,11 @@
 .project-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
-    padding: 2rem 0;
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .project-card {
@@ -69,11 +71,24 @@
     -webkit-line-clamp: 3;
     line-clamp: 3;
     overflow: hidden;
-    line-height: 1.2em;
-    min-height: calc(1.2em * 3);
-    max-height: calc(1.2em * 3);
+    line-height: 1.5;
+    min-height: calc(1.5em * 3);
+    max-height: calc(1.5em * 3);
     margin: 0.5rem 0;
     color: #a89ec9;
+}
+
+@media (max-width: 480px) {
+    .project-list {
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+    
+    .project-card {
+        max-width: 100%;
+        min-width: 100%;
+        margin: 0;
+    }
 }
 
 

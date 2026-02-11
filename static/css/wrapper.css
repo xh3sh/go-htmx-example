@@ -38,22 +38,25 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.wrapper-container{
-        display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    max-width: 80%;
+.wrapper-container {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
     padding: 1rem 0; 
-    
 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     
-    
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     border-radius: 0.7rem;
+    background: rgba(255, 255, 255, 0.03); /* Добавил легкий фон для видимости границ */
+}
+
+@media (max-width: 768px) {
+    .wrapper-container {
+        width: 95%;
+        padding: 0.5rem;
+    }
 }
