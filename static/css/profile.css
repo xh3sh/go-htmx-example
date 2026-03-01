@@ -52,8 +52,8 @@
 
     .profile-info {
         max-width: 100%;
-        padding: 0;
-        text-align: left;
+        padding: 0 0.5rem;
+        text-align: center;
     }
 
     .profile-info h2 {

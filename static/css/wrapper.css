@@ -41,7 +41,7 @@
 .wrapper-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     width: 80%;
     max-width: 1200px;
     padding: 1rem 0; 
@@ -51,7 +51,11 @@
     
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     border-radius: 0.7rem;
-    background: rgba(255, 255, 255, 0.03); /* Добавил легкий фон для видимости границ */
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tab-content {
+    width: 100%;
 }
 
 @media (max-width: 768px) {

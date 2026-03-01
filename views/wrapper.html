@@ -18,10 +18,10 @@
     </div>
 
     <div class="wrapper-container">
-        <div x-show="tab === 'cards'" x-show>
+        <div class="tab-content" x-show="tab === 'cards'">
             {{ template "cards" . }}
         </div>
-        <div x-show="tab === 'skills'" x-show>
+        <div class="tab-content" x-show="tab === 'skills'">
             {{ template "skills" . }}
         </div>
     </div>
